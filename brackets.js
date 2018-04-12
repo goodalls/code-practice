@@ -11,23 +11,23 @@ function brackets(string) {
     if(elem === '(') {
      let remove = brackets.indexOf(')')
      if(remove !== '-1'){
-       array.splice(remove); 
-       array.splice(index);
+       array.splice(remove,1); 
+       array.splice(index,1);
      }
     }
      if(elem === '{') {
      let remove = brackets.indexOf('}')
      if(remove !== '-1'){
-       array.splice(remove); 
-       array.splice(index);
+       array.splice(remove,1); 
+       array.splice(index,1);
        
      }
     }
      if(elem === '[') {
      let remove = brackets.indexOf(']')
      if(remove !== '-1'){
-       array.splice(remove); 
-       array.splice(index);
+       array.splice(remove,1); 
+       array.splice(index,1);
        
      }
     }
@@ -39,4 +39,4 @@ function brackets(string) {
   return false
 }
 
-brackets('{]')
+console.log(brackets('{]'));
