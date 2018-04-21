@@ -1,3 +1,4 @@
+
 function findOdd(A) {
   const reduce = A.reduce((acc, num) => {
     if (!acc[num]) {
@@ -30,3 +31,14 @@ const findOdd = A => {
     }
   }
 };
+
+function findOdd(A) {
+  const object = A.reduce((obj, num) => {
+    obj[num] ? obj[num]++ : obj[num] = 1
+    return obj
+  }, {});
+  for (prop in object)
+    if (object[prop] % 2 !== 0) return parseInt(prop);
+}
+
+console.log(findOdd(['1','1','0','0','0','3','3','2','2','5','5','10','10']));
