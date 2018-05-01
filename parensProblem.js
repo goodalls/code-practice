@@ -39,3 +39,6 @@ console.log(paren('))((')) // false
 
 console.log(validParentheses("()"))//, true)
 console.log(validParentheses("())"))//, false);
+console.log(validParentheses('(())()')) // true
+console.log(validParentheses('()(()))')) // false
+console.log(validParentheses('))((')) // false
