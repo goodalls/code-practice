@@ -6,6 +6,10 @@
 
 //must return YES or NO if the robot follows a circle or not
 
+// rl-->rl
+//  |   |
+// rl-->rl
+
 const robot = (instructions) => {
   //answer here
 };
