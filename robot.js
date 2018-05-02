@@ -10,54 +10,64 @@
 //  |   |
 // gr-->gr
 
-const robot = (instructions) => {
-  let x = 0;
-  let y = 0;
-  let direction = 'up';
+const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
   const constants = {
     up: {
-      G: y++,
-      L: direction = 'left',
-      R: direction = 'right'
+      G: () => y += 1,
+      L: () => direction = 'left',
+      R: () => direction = 'right'
     },
     down: {
-      G: y--,
-      L: direction = 'right',
-      R: direction = 'left'
+      G: () => y += -1,
+      L: () => direction = 'right',
+      R: () => direction = 'left'
     },
     right: {
-      G: x++,
-      L: direction = 'up',
-      R: direction = 'down'
+      G: () => x += 1,
+      L: () => direction = 'up',
+      R: () => direction = 'down'
     },
     left: {
-      G: x--,
-      L: direction = 'down',
-      R: direction = 'up'
+      G: () => {x += -1},
+      L: () => {direction = 'down'},
+      R: () => {direction = 'up'}
     }
   }
-
-  for (let i = 0; i < 1000; i++){
-    const instructionsArray = instructions[0].split('');
-    instructionsArray.forEach(instruction => {
   
-      constants[direction][instruction];
-    });
-
-    console.log(`
-    x = ${x}
-    y = ${y}
-    `);
-    
-    if (x === 0 && y === 0) return 'YES'
+  if (count > 2 && x === 0 && y === 0) {
+    return 'YES'
   }
-  return 'NO'
+  if (count >= 1000) {
+    return 'NO'
+  }
+
+  const array = instructions.split('');
+  array.forEach((el)=>{
+    console.log(constants[direction]);
+    
+    constants[direction][el]
+  })
+  
+  count++
+  console.log(`
+  x = ${x}
+  y = ${y}
+  count = ${count}
+  direction = ${direction}
+  `);
+  
+  return robot(instructions, x, y, count, direction)
 };
 
 
-console.log(robot(['GGGRGGG']))
-console.log(robot(['GGGLLGGG']))
-console.log(robot(['GR', 'GLR', 'GRLLRRGG', 'GRLRGRLRG', 'LGRGLGRGRGLGRGL']))
+console.log(robot('GGGRGGG'))
+console.log(robot('GGGLLGGG'))//yes
+console.log(robot('GLGRG'))//no
+console.log(robot('GR'))
+console.log(robot('GLR'))
+console.log(robot('GRLLRRGG'))
+console.log(robot('GRLRGRLRG'))
+console.log(robot('LGRGLGRGRGLGRGL'))
 
 // a) If current direction is up, then ‘G’ increments y and doesn’t change x.
 // b) If current direction is right, then ‘G’ increments x and doesn’t change y.
