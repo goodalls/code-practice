@@ -18,7 +18,7 @@ const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
       R: 'right'
     },
     down: {
-      G: -1,//y
+      G: -1, //y
       L: 'right',
       R: 'left'
     },
@@ -28,13 +28,14 @@ const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
       R: 'down'
     },
     left: {
-      G: -1,  // x
+      G: -1, // x
       L: 'down',
       R: 'up'
     }
   }
-  
-  if (count > 2 && x === 0 && y === 0) {
+
+  //Base Case
+  if (count > 1 && x === 0 && y === 0) {
     return 'YES'
   }
   if (count >= 1000) {
@@ -42,33 +43,30 @@ const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
   }
 
   const array = instructions.split('');
-  array.forEach((el)=>{
+  array.forEach((instruction) => {
     const currentDirection = direction
-    if (el === 'L' || el === 'R') {
-      direction = constants[currentDirection][el]
+    if (instruction === 'L' || instruction === 'R') {
+      direction = constants[currentDirection][instruction]
     }
-    if (el === 'G') {
+    if (instruction === 'G') {
       if (currentDirection === 'up' || currentDirection === 'down') {
-        y += constants[currentDirection][el]
+        y += constants[currentDirection][instruction]
       }
       if (currentDirection === 'left' || currentDirection === 'right') {
-        x += constants[currentDirection][el]
+        x += constants[currentDirection][instruction]
       }
     }
   })
-  
   count++
-
-  
   return robot(instructions, x, y, count, direction)
 };
 
 
-console.log(robot('GGGRGGG'))//yes
-console.log(robot('GGGLLGGG'))//yes
-console.log(robot('GLGR'))//no
-console.log(robot('GR'))//yes
-console.log(robot('GL'))//yes
+console.log(robot('GGGRGGG')) //yes
+console.log(robot('GGGLLGGG')) //yes
+console.log(robot('GLGR')) //no
+console.log(robot('GR')) //yes
+console.log(robot('GL')) //yes
 console.log(robot('LGRG')) //no
 console.log(robot('GRLLRRGG')) //yes
 console.log(robot('GRLRGRLRG')) //yes
