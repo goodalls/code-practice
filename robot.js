@@ -13,22 +13,22 @@
 const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
   const constants = {
     up: {
-      G: (() => y += 1)(),
+      G: 1,
       L: (() => direction = 'left')(),
       R: (() => direction = 'right')()
     },
     down: {
-      G: (() => y += -1)(),
+      G: -1,
       L: (() => direction = 'right')(),
       R: (() => direction = 'left')()
     },
     right: {
-      G: (() => x += 1)(),
+      G: 1,
       L: (() => direction = 'up')(),
       R: (() => direction = 'down')()
     },
     left: {
-      G: (() => x += -1)(),
+      G: -1,
       L: (() => direction = 'down')(),
       R: (() => direction = 'up')()
     }
@@ -48,27 +48,27 @@ const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
       direction = constants[currentDirection][el]
     }
     if (el === 'G') {
-
+      if (currentDirection === 'up' || currentDirection === 'down') {
+        y += constants[currentDirection][el]
+      }
+      if (currentDirection === 'left' || currentDirection === 'right') {
+        x += constants[currentDirection][el]
+      }
     }
   })
   
   count++
-  console.log(`
-  x = ${x}
-  y = ${y}
-  count = ${count}
-  direction = ${direction}
-  `);
+
   
   return robot(instructions, x, y, count, direction)
 };
 
 
-console.log(robot('GGGRGGG'))
+console.log(robot('GGGRGGG'))//yes
 console.log(robot('GGGLLGGG'))//yes
-console.log(robot('GLGRG'))//no
-console.log(robot('GR'))
-console.log(robot('GLR'))
+console.log(robot('GLGR'))//no
+console.log(robot('GR'))//yes
+console.log(robot('GL'))//yes
 console.log(robot('GRLLRRGG'))
 console.log(robot('GRLRGRLRG'))
 console.log(robot('LGRGLGRGRGLGRGL'))
