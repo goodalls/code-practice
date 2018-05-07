@@ -43,7 +43,13 @@ const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
 
   const array = instructions.split('');
   array.forEach((el)=>{
-    constants[direction][el]
+    const currentDirection = direction
+    if (el === 'L' || el === 'R') {
+      direction = constants[currentDirection][el]
+    }
+    if (el === 'G') {
+
+    }
   })
   
   count++
