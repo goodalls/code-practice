@@ -13,24 +13,24 @@
 const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
   const constants = {
     up: {
-      G: 1,
-      L: (() => direction = 'left')(),
-      R: (() => direction = 'right')()
+      G: 1, //y
+      L: 'left',
+      R: 'right'
     },
     down: {
-      G: -1,
-      L: (() => direction = 'right')(),
-      R: (() => direction = 'left')()
+      G: -1,//y
+      L: 'right',
+      R: 'left'
     },
     right: {
-      G: 1,
-      L: (() => direction = 'up')(),
-      R: (() => direction = 'down')()
+      G: 1, // x
+      L: 'up',
+      R: 'down'
     },
     left: {
-      G: -1,
-      L: (() => direction = 'down')(),
-      R: (() => direction = 'up')()
+      G: -1,  // x
+      L: 'down',
+      R: 'up'
     }
   }
   
@@ -69,6 +69,7 @@ console.log(robot('GGGLLGGG'))//yes
 console.log(robot('GLGR'))//no
 console.log(robot('GR'))//yes
 console.log(robot('GL'))//yes
-console.log(robot('GRLLRRGG'))
-console.log(robot('GRLRGRLRG'))
-console.log(robot('LGRGLGRGRGLGRGL'))
+console.log(robot('LGRG')) //no
+console.log(robot('GRLLRRGG')) //yes
+console.log(robot('GRLRGRLRG')) //yes
+console.log(robot('LGRGLGRGRGLGRGL')) //no
