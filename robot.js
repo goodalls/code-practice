@@ -13,24 +13,24 @@
 const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
   const constants = {
     up: {
-      G: () => y += 1,
-      L: () => direction = 'left',
-      R: () => direction = 'right'
+      G: (() => y += 1)(),
+      L: (() => direction = 'left')(),
+      R: (() => direction = 'right')()
     },
     down: {
-      G: () => y += -1,
-      L: () => direction = 'right',
-      R: () => direction = 'left'
+      G: (() => y += -1)(),
+      L: (() => direction = 'right')(),
+      R: (() => direction = 'left')()
     },
     right: {
-      G: () => x += 1,
-      L: () => direction = 'up',
-      R: () => direction = 'down'
+      G: (() => x += 1)(),
+      L: (() => direction = 'up')(),
+      R: (() => direction = 'down')()
     },
     left: {
-      G: () => {x += -1},
-      L: () => {direction = 'down'},
-      R: () => {direction = 'up'}
+      G: (() => x += -1)(),
+      L: (() => direction = 'down')(),
+      R: (() => direction = 'up')()
     }
   }
   
@@ -43,8 +43,6 @@ const robot = (instructions, x = 0, y = 0, count = 0, direction = 'up') => {
 
   const array = instructions.split('');
   array.forEach((el)=>{
-    console.log(constants[direction]);
-    
     constants[direction][el]
   })
   
@@ -68,13 +66,3 @@ console.log(robot('GLR'))
 console.log(robot('GRLLRRGG'))
 console.log(robot('GRLRGRLRG'))
 console.log(robot('LGRGLGRGRGLGRGL'))
-
-// a) If current direction is up, then ‘G’ increments y and doesn’t change x.
-// b) If current direction is right, then ‘G’ increments x and doesn’t change y.
-// c) If current direction is down, then ‘G’ decrements y and doesn’t change x.
-// d) If current direction is left, then ‘G’ decrements x and doesn’t change y.
-
-// a) If current direction is up, then ‘L’ changes direction to left and ‘R’ changes to right
-// b) If current direction is right, then ‘L’ changes direction to up and ‘R’ changes to down
-// c) If current direction is down, then ‘L’ changes direction to right and ‘R’ changes to left
-// d) If current direction is left, then ‘L’ changes direction to down and ‘R’ changes to up.
