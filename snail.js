@@ -19,6 +19,5 @@ const snail = (array) => {
       result.push(array[i].shift());
     }
   }
-
   return result;
 }
