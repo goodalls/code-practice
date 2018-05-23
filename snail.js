@@ -1,4 +1,3 @@
-
 /*
 
 Snail Sort
@@ -28,26 +27,23 @@ Snail Sort
  NOTE: The idea is not sort the elements from the lowest value to the highest; the idea is to traverse the 2-d array in a clockwise snailshell pattern.
  */
 
- const snail = (array) => {
-
+const snail = (array) => {
   let solution = [];
-
   while (array.length) {
     //top row
     solution.push(...array.shift());
     //rightside row
-    array.forEach(arr=>solution.push(...arr.splice(-1)));
+    array.forEach(arr => solution.push(...arr.splice(-1)));
     //bottom row
-    // solution.push(...array.pop()||[].reverse());
-    solution.push(...array.slice(-1)||[].reverse());
+    let last = array.pop() || [];
+    solution.push(...last.reverse());
     //leftside
-    // array.forEach(arr=>solution.push(...arr.splice(0)));
-    for (let i = array.length-1; i >= 0; i--) {
-      solution.push(...array[i].splice(0))
+    for (let i = array.length - 1; i >= 0; i--) {
+      solution.push(array[i].shift())
     }
   }
   return solution
- }
+}
 
 // const snail = (array) => {
 //   let result = [];
@@ -73,12 +69,33 @@ Snail Sort
 //   return result;
 // }
 
-console.log(snail([[]]))//, []);
+console.log(snail([
+  []
+])) //, []);
 
-console.log(snail([[1]]))//, [1]);
+console.log(snail([
+  [1]
+])) //, [1]);
 
-console.log(snail([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))//, [1, 2, 3, 6, 9, 8, 7, 4, 5]);
+console.log(snail([
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+])) //, [1, 2, 3, 6, 9, 8, 7, 4, 5]);
 
-console.log(snail([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))//, [1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]);
+console.log(snail([
+  [1, 2, 3, 4, 5],
+  [6, 7, 8, 9, 10],
+  [11, 12, 13, 14, 15],
+  [16, 17, 18, 19, 20],
+  [21, 22, 23, 24, 25]
+])) //, [1, 2, 3, 4, 5, 10, 15, 20, 25, 24, 23, 22, 21, 16, 11, 6, 7, 8, 9, 14, 19, 18, 17, 12, 13]);
 
-console.log(snail([[1, 2, 3, 4, 5, 6], [20, 21, 22, 23, 24, 7], [19, 32, 33, 34, 25, 8], [18, 31, 36, 35, 26, 9], [17, 30, 29, 28, 27, 10], [16, 15, 14, 13, 12, 11]]))//, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]);
+console.log(snail([
+  [1, 2, 3, 4, 5, 6],
+  [20, 21, 22, 23, 24, 7],
+  [19, 32, 33, 34, 25, 8],
+  [18, 31, 36, 35, 26, 9],
+  [17, 30, 29, 28, 27, 10],
+  [16, 15, 14, 13, 12, 11]
+])) //, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]);
