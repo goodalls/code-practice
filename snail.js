@@ -28,30 +28,50 @@ Snail Sort
  NOTE: The idea is not sort the elements from the lowest value to the highest; the idea is to traverse the 2-d array in a clockwise snailshell pattern.
  */
 
+ const snail = (array) => {
 
-const snail = (array) => {
-  let result = [];
+  let solution = [];
 
   while (array.length) {
-
-    // Steal the first row
-    result = [...result, ...array.shift()];
-
-    // Steal the right items
-    for (let i = 0; i < array.length; i++) {
-      result.push(array[i].pop());
-    }
-
-    // Steal the bottom row
-    // result = result.concat((array.pop() || []).reverse());
-    result = [...result, ...array.pop()||[].reverse()]
-    // Steal the left items
-    for (let i = array.length - 1; i >= 0; i--) {
-      result.push(array[i].shift());
+    //top row
+    solution.push(...array.shift());
+    //rightside row
+    array.forEach(arr=>solution.push(...arr.splice(-1)));
+    //bottom row
+    // solution.push(...array.pop()||[].reverse());
+    solution.push(...array.slice(-1)||[].reverse());
+    //leftside
+    // array.forEach(arr=>solution.push(...arr.splice(0)));
+    for (let i = array.length-1; i >= 0; i--) {
+      solution.push(...array[i].splice(0))
     }
   }
-  return result;
-}
+  return solution
+ }
+
+// const snail = (array) => {
+//   let result = [];
+
+//   while (array.length) {
+
+//     // Steal the first row
+//     result = [...result, ...array.shift()];
+
+//     // Steal the right items
+//     for (let i = 0; i < array.length; i++) {
+//       result.push(array[i].pop());
+//     }
+
+//     // Steal the bottom row
+//     // result = result.concat((array.pop() || []).reverse());
+//     result = [...result, ...array.pop()||[].reverse()]
+//     // Steal the left items
+//     for (let i = array.length - 1; i >= 0; i--) {
+//       result.push(array[i].shift());
+//     }
+//   }
+//   return result;
+// }
 
 console.log(snail([[]]))//, []);
 
