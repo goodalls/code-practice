@@ -1,4 +1,4 @@
-var moveZeros = function(arr) {
+var moveZeros = function (arr) {
   const zeros = [];
   const numbers = arr.filter(el => {
     if (el === 0) {
@@ -11,7 +11,7 @@ var moveZeros = function(arr) {
 };
 
 const moveZero = arr => {
-return arr.filter(x => x !== 0).concat(arr.filter(x => x === 0));
+  return arr.filter(x => x !== 0).concat(arr.filter(x => x === 0));
 };
 
 

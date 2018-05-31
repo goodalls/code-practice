@@ -25,8 +25,7 @@ function validParentheses(parens) {
     }
     if (el === ')' && stack[stack.length - 1] === '(') {
       stack.pop()
-    }
-    else if (el === ')' && !stack.length) {
+    } else if (el === ')' && !stack.length) {
       stack.push(el)
     }
   })
@@ -37,8 +36,8 @@ console.log(paren('(())()')) // true
 console.log(paren('()(()))')) // false
 console.log(paren('))((')) // false
 
-console.log(validParentheses("()"))//, true)
-console.log(validParentheses("())"))//, false);
+console.log(validParentheses("()")) //, true)
+console.log(validParentheses("())")) //, false);
 console.log(validParentheses('(())()')) // true
 console.log(validParentheses('()(()))')) // false
 console.log(validParentheses('))((')) // false

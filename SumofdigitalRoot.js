@@ -2,9 +2,9 @@
 
 function digital_root(n) {
   const string = n.toString()
-    if (string.length === 1){
+  if (string.length === 1) {
     return n
-    }
-    const sum = string.split('').reduce((acc,num)=>acc += Number(num),0)
-    return digital_root(sum)
   }
+  const sum = string.split('').reduce((acc, num) => acc += Number(num), 0)
+  return digital_root(sum)
+}
