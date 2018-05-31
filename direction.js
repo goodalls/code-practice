@@ -6,10 +6,10 @@ function dirReduc(arr) {
     'WEST': 'EAST'
   };
   return arr.reduce((acc, direction) => {
-   if (acc[acc.length -1] === opposite[direction])
-    acc.pop()
+    if (acc[acc.length - 1] === opposite[direction])
+      acc.pop()
     else
-    acc.push(direction)
+      acc.push(direction)
     return acc;
   }, []);
 }
