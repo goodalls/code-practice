@@ -1,0 +1,20 @@
+{
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "files.autoSave": "onFocusChange",
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.parameterHints": false,
+    "explorer.decorations.colors": false,
+    "explorer.openEditors.visible": 0,
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "editor.minimap.enabled": false,
+    "bracketPairColorizer.showBracketsInGutter": true,
+    "editor.wordWrap": "on",
+    "editor.tabCompletion": true,
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.activityBar.visible": true
+}
