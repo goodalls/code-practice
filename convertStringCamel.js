@@ -9,8 +9,8 @@ function toCamelCase(str){
   }).join('');
 }
 
-console.log(toCamelCase("The-Stealth-Warrior"))//, "TheStealthWarrior", "toCamelCase('The-Stealth-Warrior') did not return correct value")
-console.log(toCamelCase("the-Stealth-Warrior"))//, "theStealthWarrior", "toCamelCase('the-Stealth-Warrior') did not return correct value")
-console.log(toCamelCase("A-B-C"))//, "ABC", "toCamelCase('A-B-C') did not return correct value")
+console.log(toCamelCase("The-Stealth-Warrior"))//, "TheStealthWarrior"
+console.log(toCamelCase("the-Stealth-Warrior"))//, "theStealthWarrior"
+console.log(toCamelCase("A-B-C"))//, "ABC", 
 console.log(toCamelCase("I-am-a-programmer"))//, "IAmAProgrammer")
 console.log(toCamelCase("i-am-a-programmer"))//, "iAmAProgrammer")
