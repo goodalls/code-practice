@@ -11,26 +11,29 @@ O=Dead
 X=Alive
 */
 
-const gameOfLife = (board = null) => {
+const gameOfLife = (board = null, newBoard) => {
+//Base Case
+if (board === newBoard){
+  return console.log(complete)
+}
+  // should be class??
 
-  // should be class
+  //should be a method of class
   if(board) {
     let board = [];
-  for(let i = 0;i<100; i++) {
+  for(let i = 0; i < 100; i++) {
     let random = Math.round(Math.random())
     board.push(random?'X':'O')
   }
 }
 //iterate over board elements following rules until nothing changes in the board anymore.
-switch (key) {
-  case value:
-    
-    break;
+//run rules to create new board 
 
-  default:
-    break;
-}
+
 //return board in a grid to dispaly in terminal
+console.log(newBoard)
+
+return gameOfLife(board, newBoard)
 
 }
 
