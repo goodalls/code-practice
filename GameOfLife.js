@@ -12,6 +12,8 @@ X=Alive
 */
 
 const gameOfLife = (board = null) => {
+
+  // should be class
   if(board) {
     let board = [];
   for(let i = 0;i<100; i++) {
