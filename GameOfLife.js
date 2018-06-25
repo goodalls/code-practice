@@ -14,12 +14,20 @@ X=Alive
 const gameOfLife = (board = null) => {
   if(board) {
     let board = [];
-  for(let i = 0;i<cells; i++) {
+  for(let i = 0;i<100; i++) {
     let random = Math.round(Math.random())
     board.push(random?'X':'O')
   }
 }
 //iterate over board elements following rules until nothing changes in the board anymore.
+switch (key) {
+  case value:
+    
+    break;
+
+  default:
+    break;
+}
 //return board in a grid to dispaly in terminal
 
 }
