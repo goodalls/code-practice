@@ -19,9 +19,8 @@ const gameOfLife = (board = null) => {
     board.push(random?'X':'O')
   }
 }
-  //put array into a grid
-  //loop over grid following rules until nothing changes in the gris anymore . needs to be a recursive function??
-  //display grid on terminal for each iteration of the game
+//iterate over board elements following rules until nothing changes in the board anymore.
+//return board in a grid to dispaly in terminal
 
 }
 
