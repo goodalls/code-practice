@@ -11,7 +11,7 @@ O=Dead
 X=Alive
 */
 
-const gameOfLife = (board = null, newBoard) => {
+const gameOfLife = (board = null) => {
 //Base Case
 if (board === newBoard){
   return console.log(complete)
@@ -33,7 +33,7 @@ if (board === newBoard){
 //return board in a grid to dispaly in terminal
 console.log(newBoard)
 
-return gameOfLife(board, newBoard)
+return gameOfLife(newBoard)
 
 }
 
