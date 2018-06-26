@@ -12,13 +12,12 @@ X=Alive
 */
 
 const gameOfLife = (board = null) => {
+  let newBoard;
 //Base Case
 if (board === newBoard){
   return console.log(complete)
 }
-  // should be class??
-
-  //should be a method of class
+// if board doesn't exist
   if(board) {
     let board = [];
   for(let i = 0; i < 100; i++) {
@@ -27,6 +26,7 @@ if (board === newBoard){
   }
 }
 //iterate over board elements following rules until nothing changes in the board anymore.
+newBoard = 
 //run rules to create new board 
 
 
