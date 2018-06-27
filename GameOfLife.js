@@ -11,14 +11,14 @@ O=Dead
 X=Alive
 */
 
-const gameOfLife = (board = null) => {
+const gameOfLife = (board = undefined) => {
   let newBoard;
 //Base Case
 if (board === newBoard){
-  return console.log(complete)
+  return console.log('complete')
 }
 // if board doesn't exist
-  if(board) {
+  if(!board) {
     let board = [];
   for(let i = 0; i < 100; i++) {
     let random = Math.round(Math.random())
@@ -26,8 +26,26 @@ if (board === newBoard){
   }
 }
 //iterate over board elements following rules until nothing changes in the board anymore.
-newBoard = 
 //run rules to create new board 
+newBoard = board.map((cell, index) => {
+  let count = 3
+  console.log(count);
+  
+  if (cell === X) {
+    if (count < 2) {
+      return 'O'
+    }
+    if (count === 2 || count === 3) {
+      return 'X'
+    }
+    if (count > 3) {
+      return 'O'
+    }
+  } else if (count === 3) {
+    return 'X'
+  }
+
+});
 
 
 //return board in a grid to dispaly in terminal
@@ -35,6 +53,10 @@ console.log(newBoard)
 
 return gameOfLife(newBoard)
 
+}
+
+const count = (index, board) => {
+  return 3
 }
 
 console.log(gameOfLife())
