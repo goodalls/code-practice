@@ -13,63 +13,88 @@ X=Alive
 
 const gameOfLife = (board = undefined, generation = 0) => {
   generation++
-//Base Case
-if (generation === 100){
-  return console.log('complete')
-}
-// if board doesn't exist
-if(board === undefined) {
-    console.log('make-board');
-    
-    let array = [];
-  for(let i = 0; i < 100; i++) {
-    let random = Math.round(Math.random())
-    array.push(random?'X':'O')
+  //Base Case
+  if (generation === 100) {
+    return console.log('complete')
   }
-  board = array
-}
-//iterate over board elements following rules until nothing changes in the board anymore.
-//run rules to create new board 
-newBoard = board.map((cell, index) => {
-  let count = countOf(index, board)
-  
-  if (count === 3) {
-    return 'X'
-  } 
-
-  if (cell === 'X') {
-    if (count < 2) {
-      return 'O'
+  // if board doesn't exist
+  if (board === undefined) {
+    let array = [];
+    for (let i = 0; i < 100; i++) {
+      let random = Math.round(Math.random())
+      array.push(random ? 'X' : 'O')
     }
-    if (count === 2) {
+    board = array
+  }
+  //iterate over board elements following rules until nothing changes in the board anymore.
+  //run rules to create new board 
+  newBoard = board.map((cell, index) => {
+    let count = countOf(index, board)
+
+    if (count === 3) {
       return 'X'
     }
-    if (count > 3) {
-      return 'O'
+
+    if (cell === 'X') {
+      if (count < 2) {
+        return 'O'
+      }
+      if (count === 2) {
+        return 'X'
+      }
+      if (count > 3) {
+        return 'O'
+      }
+    } else {
+      return cell
     }
-  } else {
-    return cell
-  }
 
-});
+  });
 
 
-//return board in a grid to display in terminal
-console.log(newBoard)
+  //return board in a grid to display in terminal
+  console.log(displayBoard(newBoard))
 
-return gameOfLife(newBoard, generation)
-
+  return gameOfLife(newBoard, generation)
 }
 
 const countOf = (index, board) => {
   let neighbors = 0
-  if(board[index - 1] === 'X'){
+  if (board[index - 1] === 'X') {
     neighbors++
   }
-  if(board[index + 1] === 'X'){
+  if (board[index + 1] === 'X') {
     neighbors++
   }
+  if (board[index - 11] === 'X') {
+    neighbors++
+  }
+  if (board[index - 10] === 'X') {
+    neighbors++
+  }
+  if (board[index - 9] === 'X') {
+    neighbors++
+  }
+  if (board[index + 9] === 'X') {
+    neighbors++
+  }
+  if (board[index + 10] === 'X') {
+    neighbors++
+  }
+  if (board[index + 11] === 'X') {
+    neighbors++
+  }
+  console.log(neighbors);
+  
   return neighbors;
+}
+
+const displayBoard = (array) => {
+  var results = [];
+  while (array.length) {
+    results.push([array.splice(0, 10).join('')]);
+  }
+  return results;
 }
 
 console.log(gameOfLife())
