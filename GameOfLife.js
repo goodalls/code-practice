@@ -31,37 +31,45 @@ if(board === undefined) {
 //iterate over board elements following rules until nothing changes in the board anymore.
 //run rules to create new board 
 newBoard = board.map((cell, index) => {
-  let count = 3
-  console.log(count);
+  let count = countOf(index, board)
   
-  if (cell === X) {
+  if (count === 3) {
+    return 'X'
+  } 
+
+  if (cell === 'X') {
     if (count < 2) {
       return 'O'
     }
-    if (count === 2 || count === 3) {
+    if (count === 2) {
       return 'X'
     }
     if (count > 3) {
       return 'O'
     }
-  } else if (count === 3) {
-    return 'X'
+  } else {
+    return cell
   }
 
 });
 
 
-//return board in a grid to dispaly in terminal
+//return board in a grid to display in terminal
 console.log(newBoard)
 
-return gameOfLife(newBoard)
+return gameOfLife(newBoard, generation)
 
 }
 
-const count = (index, board) => {
-  console.log('boom - count');
-  
-  return 3
+const countOf = (index, board) => {
+  let neighbors = 0
+  if(board[index - 1] === 'X'){
+    neighbors++
+  }
+  if(board[index + 1] === 'X'){
+    neighbors++
+  }
+  return neighbors;
 }
 
 console.log(gameOfLife())
