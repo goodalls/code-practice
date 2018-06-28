@@ -11,19 +11,22 @@ O=Dead
 X=Alive
 */
 
-const gameOfLife = (board = undefined) => {
-  let newBoard;
+const gameOfLife = (board = undefined, generation = 0) => {
+  generation++
 //Base Case
-if (board === newBoard){
+if (generation === 100){
   return console.log('complete')
 }
 // if board doesn't exist
-  if(!board) {
-    let board = [];
+if(board === undefined) {
+    console.log('make-board');
+    
+    let array = [];
   for(let i = 0; i < 100; i++) {
     let random = Math.round(Math.random())
-    board.push(random?'X':'O')
+    array.push(random?'X':'O')
   }
+  board = array
 }
 //iterate over board elements following rules until nothing changes in the board anymore.
 //run rules to create new board 
@@ -56,6 +59,8 @@ return gameOfLife(newBoard)
 }
 
 const count = (index, board) => {
+  console.log('boom - count');
+  
   return 3
 }
 
