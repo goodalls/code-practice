@@ -50,8 +50,6 @@ const gameOfLife = (board = undefined, generation = 0) => {
     }
 
   });
-
-
   //return board in a grid to display in terminal
   console.log(displayBoard(newBoard))
 
@@ -85,7 +83,6 @@ const countOf = (index, board) => {
     neighbors++
   }
   console.log(neighbors);
-  
   return neighbors;
 }
 
